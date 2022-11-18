@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Upload</title>
+</head>
+<body>
+    <p>
+        <form action="{{ url_for('fileUpload') }}"
+              method="POST"
+              enctype = "multipart/form-data">
+        <input type = "file" name = "file" />
+        <input type = "submit" onclick="return confirm('제출 성공! \n업로드한 이미지를 확인합니다.');"/>
+        <!--<a href="/view" onclick="return confirm('제출 성공! \n업로드한 이미지를 확인합니다.');">제출하기</a>-->
+        </form>
+	<button href="{{url_for('remove')}}" onclick="return confirm('업로드한 파일삭제중 ...');">remove</button>
+    </p>
+    <button>
+        <a href="{{ url_for('preprocess') }}" onclick="return confirm('preprocess중...');">preprocess</a>
+    </button>
+
+    <form method="POST">
+    		Train epoch:<br>
+    		<input type="text" name="epoch"><br>
+    		<input type="submit" value="Submit">
+    </form>
+    
+    <button>
+        <a href="{{ url_for('train') }}" onclick="return confirm('train중...');">train</a>
+    </button>
+</body>
+</html>
